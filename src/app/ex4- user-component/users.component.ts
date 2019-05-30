@@ -1,29 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
-import { UserService } from './user.service';
+import {UserService} from './user.service';
 
 export class UsersComponent implements OnInit {
   users: any[];
 
   constructor(
     private _service: UserService
-  ) {	}
+  ) {
+  }
 
-	ngOnInit() {
+  ngOnInit() {
     this._service.getUsers().subscribe((users: any[]) => this.users = users);
   }
 
   deleteUser(user) {
-		if (confirm(`Are you sure you want to delete ${user.name}?`)) {
-			const index = this.users.indexOf(user);
+    if (confirm(`Are you sure you want to delete ${user.name}?`)) {
+      const index = this.users.indexOf(user);
       this.users.splice(index, 1);
 
-			this._service.deleteUser(user.id).subscribe(
+      this._service.deleteUser(user.id).subscribe(
         null,
         err => {
           alert('Could not delete the user.');
           this.users.splice(index, 0, user);
         });
-		}
-	}
+    }
+  }
 }

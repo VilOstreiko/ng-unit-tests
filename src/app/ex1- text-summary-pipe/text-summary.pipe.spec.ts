@@ -8,7 +8,7 @@ xdescribe('TextSummaryPipe', () => {
   it('should return an empty string if input is null', () => {
   });
 
-  it('should return null if input is undefined', () => {
+  it('should return empty string if input is undefined', () => {
   });
 
   it('should return empty string if input is an empty string', () => {

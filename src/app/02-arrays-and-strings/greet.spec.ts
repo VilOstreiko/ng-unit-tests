@@ -2,8 +2,9 @@ import { greet } from './greet';
 
 describe('greet', () => {
   it('should return phrase with passed name', () => {
-    const result = greet('John');
+    const name = 'John';
+    const result = greet(name);
 
-    expect(result).toContain('John');
+    expect(result).toContain(name);
   });
 });
